@@ -1,0 +1,27 @@
+{
+    "name": "open-network-tools/manufacturer-extreme-networks",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thibault CHEVALLERAUD",
+            "email": "tchevalleraud@interdata.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "OpenNetworkTools\\Manufacturer\\ExtremeNetworks\\": "src/",
+            "OpenNetworkTools\\Interfaces\\": "interfaces/",
+            "OpenNerworkTools\\Toolbox\\": "toolbox/"
+        }
+    },
+    "require": {
+        "php": ">= 7.0",
+        "open-network-tools/open-manufacturer": "dev-develop"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4|^6.5",
+        "php-coveralls/php-coveralls": "^2.1"
+    }
+}
