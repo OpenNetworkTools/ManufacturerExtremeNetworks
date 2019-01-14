@@ -12,8 +12,8 @@
     "autoload": {
         "psr-4": {
             "OpenNetworkTools\\Manufacturer\\ExtremeNetworks\\": "src/",
-            "OpenNetworkTools\\Interfaces\\": "interfaces/",
-            "OpenNerworkTools\\Toolbox\\": "toolbox/"
+            "OpenNetworkTools\\Manufacturer\\ExtremeNetworks\\Interfaces\\": "interfaces/",
+            "OpenNetworkTools\\Toobox\\Manufacturer\\ExtremeNetworks\\": "toolbox/"
         }
     },
     "require": {
