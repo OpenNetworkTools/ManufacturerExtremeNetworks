@@ -5,6 +5,22 @@
     
         public function __construct(){
             parent::__construct();
+            $this->getConfig()->addVlans(1)->setVlanId(1);
+        }
+
+        public function analyseConfigFile(){
+            foreach ($this->getConfigFile() as $k => $v){
+                $this->analyseVlan($k, $v);
+            }
+        }
+
+        private function analyseVlan($key, $line){
+            if(preg_match("#^vlan create ([0-9,-]+)#", $line, $match)){
+               $vlans = \OpenNetworkTools\Toobox\Manufacturer\ExtremeNetworks\analyseVlans::explode($match[1]);
+               foreach ($vlans as $vlan) $this->getConfig()->addVlans($vlan)->setVlanId($vlan);
+            } elseif(preg_match("#^vlan name ([0-9]+) \"(.*)\"#", $line, $match)){
+                $this->getConfig()->getVlans($match[1])->setDescription($match[2]);
+            }
         }
 
     }
