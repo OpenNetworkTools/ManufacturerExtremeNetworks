@@ -20,6 +20,9 @@
                foreach ($vlans as $vlan) $this->getConfig()->addVlans($vlan)->setVlanId($vlan);
             } elseif(preg_match("#^vlan name ([0-9]+) \"(.*)\"#", $line, $match)){
                 $this->getConfig()->getVlans($match[1])->setDescription($match[2]);
+            } elseif(preg_match("#^vlan ports ([0-9/-]+) pvid ([0-9]+)#", $line, $match)){
+                $interfaces = \OpenNetworkTools\Toobox\Manufacturer\ExtremeNetworks\analysePorts::explode($match[1]);
+                foreach ($interfaces as $interface) $this->getConfig()->addInterfaces($interface);
             }
         }
 
